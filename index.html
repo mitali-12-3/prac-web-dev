@@ -1,33 +1,95 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOREM</title>
+    <title>Start/Stop Watch</title>
     <style>
-        body{
-          /*  background-image: url(image.png); */
-            background-repeat:repeat-y;
-            color: blueviolet;
-            background-attachment: fixed;
-            background-position: left;
+        .container{
+            border: 3px solid rgb(9, 1, 13);
+            text-align: center;
+            background-color: rgb(99, 160, 160);
+            width: 250px;
+            padding: 43px;
         }
-        #me{
-            color: brown;
-            font-size: 10px;
-        }
-        h1{
-            font-size: 25px;
-            border-style: ridge;
-            background-color: rgb(189, 194, 194);
+        .container .txt{
+            font-size: 50px;
+            display:flex;
         }
     </style>
 </head>
 <body>
-    <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, in!</h1>
-    <p id="me">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero maxime tenetur voluptas nihil tempora quibusdam voluptatem unde sint minus fuga voluptate, at magni! Totam cumque dolores soluta, iure vero placeat!</p>
-    <p style="letter-spacing: 5px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente labore distinctio corporis minima hic illo commodi deserunt reprehenderit. Quibusdam consequatur, velit voluptatem tenetur itaque perspiciatis! Perferendis velit exercitationem veritatis placeat omnis soluta porro esse ad sint quis, error non labore atque corporis? Maxime cumque ad voluptatibus amet similique repellat, magnam, architecto unde modi tenetur corporis culpa sit dolore. Eos odio, quod natus numquam tenetur, voluptates minima accusantium non at fugit aliquam. Fuga libero nihil accusamus nobis ab expedita ipsum et commodi laborum aut minima consectetur voluptas, ipsam cupiditate fugiat architecto atque eos. Illo illum dolor amet quas iusto, officia ipsa?</p>
-    <p style="text-indent: 1cm;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente labore distinctio corporis minima hic illo commodi deserunt reprehenderit. Quibusdam consequatur, velit voluptatem tenetur itaque perspiciatis! Perferendis velit exercitationem veritatis placeat omnis soluta porro esse ad sint quis, error non labore atque corporis? Maxime cumque ad voluptatibus amet similique repellat, magnam, architecto unde modi tenetur corporis culpa sit dolore. Eos odio, quod natus numquam tenetur, voluptates minima accusantium non at fugit aliquam. Fuga libero nihil accusamus nobis ab expedita ipsum et commodi laborum aut minima consectetur voluptas, ipsam cupiditate fugiat architecto atque eos. Illo illum dolor amet quas iusto, officia ipsa?</p>
-    <p style = "font-variant: small-caps;"> This text will be rendered as small caps </p> 
+    <div class="container"> 
+         <div class="txt">
+            <div id="hr">00</div>
+            <div> : </div>
+            <div id="min"> 00 </div>
+            <div> : </div>
+            <div id="sec"> 00</div>
+            <div> : </div>
+            <div id="milli">00</div>
+         </div>
+      
+         <button id="start" onclick="start()">Start</button>
+         <button id="stop" onclick="stop()">Stop</button>
+         <button id="reset" onclick="reset()">Reset</button>
+   </div>
+    <script>
+        let hr = 0;
+        let min = 0;
+        let sec = 0;
+        let milli = 0;
+        let timer = false;
+        function start(){
+           timer = true;
+           stopwatch()
+        }
+        function stop(){
+           timer = false;
+        }
+        function reset(){
+           timer = false;
+           hr=0
+           min=0;
+           sec=0;
+           milli=0;
+            document.getElementById("milli").innerHTML= "00" ;     
+            document.getElementById("sec").innerHTML= "00" ;
+            document.getElementById("min").innerHTML="00"; 
+            document.getElementById("hr").innerHTML="00"; 
+        }
+        function stopwatch(){
+           if(timer == true){
+              milli = milli + 1;
+              if(milli == 100){
+               sec = sec +1;
+               milli=0
+              }
+               // sec = sec +1;
+               if(sec == 60){
+                   min = min+1;
+                   sec=0;
+               }
+               if(min == 60){
+                   hr = hr+1;
+                   min = 0;
+               } 
+               var getHr = hr;
+               var getMin = min;
+               var getS = sec;
+               if(hr<10){
+                   getHr = "0"+ hr;
+               }
+               if(min<10){
+                   getMin = "0"+ min;
+               }
+               if(sec < 10){
+                   getS = "0"+ sec;
+               }
+               document.getElementById("sec").innerHTML= getS ;
+               document.getElementById("min").innerHTML=getMin; 
+               document.getElementById("hr").innerHTML=getHr; 
+               document.getElementById("milli").innerHTML=milli; 
+              let timeOut = setTimeout("stopwatch()", 8);
+           }
+        }
+    </script>
 </body>
 </html>

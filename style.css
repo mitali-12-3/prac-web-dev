@@ -1,0 +1,17 @@
+h2{
+    color: blue;
+}
+
+#A{
+    color: blueviolet;
+}
+.class-A{
+    color: #da1f1f;
+}
+
+.class-B, .class-C {
+    color: #034c03;
+}
+*{
+    color: rgb(58, 4, 31);
+}
