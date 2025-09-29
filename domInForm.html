@@ -1,0 +1,92 @@
+<html>
+    <head>
+        <title>Entry Form</title>
+        <style>
+            
+            h1{
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>ENTRY FORM</h1> 
+        <form onsubmit="return formValidate()" action="index.html">
+
+            <label>Enter your Name:</label>
+            <input type="text" id="i1" ><br><br>
+
+            <label>Enter your Contact:</label>
+            <input type="text" id="i2"><br><br>
+         
+            <label>Email:</label>
+            <input type="email" id="i3" ><br><br>
+            
+            <label >Enter your Password:</label>
+            <input type="password" id="i4" ><br><br>
+
+            <label >Confirm Password:</label>
+            <input type="password" id="i5"><br><br>
+
+            <button type="submit">Submit</button>
+
+
+        </form>
+        <script>
+            function formValidate(){
+                
+            var a= document.getElementById("i1").value;
+            var b= document.getElementById("i2").value;
+            var c= document.getElementById("i3").value;
+            var d= document.getElementById("i4").value;
+            var e= document.getElementById("i5").value;
+
+            var hasUpperCase = false;
+            var hasSpecialChar = false;
+            var specialCharacters = "!@#$%^&*()_+{}[]:;<>,.?/~`";
+
+            for (var i = 0; i < d.length; i++) {
+                var char = d[i];
+                if (char >= 'A' && char <= 'Z') {
+                    hasUpperCase = true;
+                }
+                if (specialCharacters.includes(char)) {
+                    hasSpecialChar = true;
+                }
+            }
+
+
+            if(a==""|| b==""||c==""||d==""||e==""){
+                alert("All fields are mandatory!")
+                return false;
+            }
+            else if(b.length<10||b.length>10){
+                alert("Number should be of 10 digits!")
+                return false;
+            }
+            else if(isNaN(b)){
+                alert("Only digits are to be entered!")
+                return false;
+            }
+            else if (d.length < 8) {
+                alert("Password must be at least 8 characters long!");
+                return false;
+            }
+            else if (!hasUpperCase) {
+                alert("Password must contain at least one uppercase letter!");
+                return false;
+            }
+            else if (!hasSpecialChar) {
+                alert("Password must contain at least one special character!");
+                return false;
+            }
+            else if(d!=e){
+                alert("Passwords must match!")
+                return false;
+            }
+            else{
+                return true;
+            }
+        }
+        </script>
+    </body>
+   </html>

@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>Entry Form</title>
+        <style>
+            body{
+                background-color: rgb(149, 184, 219);
+            }
+        </style>
+    </head>
+    <body>
+        <font color="red" size = "2"><h1 style="margin-left: 170;">ENTRY FORM</h1></font> 
+        <form style="margin-left: 90;">
+            <label><font color="red">Enter your Name:</font></label>
+            <input type="text" style="margin-left: 55;" required><br><br>
+
+            <label><font color="red">Enter your Age:</font></label>
+            <input type="text" size="1" style="margin-left: 66;" autofocus><br><br>
+
+            <label ><font color="red">Enter your Address:</font></label>
+            <textarea name="address" style="margin-left: 42;" placeholder="mit"></textarea><br><br>
+
+            <label><font color="red">Enter Sex:</font> </label>
+            <input type="radio" id="female" style="margin-left: 100;">
+            <label for="female"><font color="red">Female</font></label><br>
+            <input type="radio" id="male" style="margin-left: 171;">
+            <label for="male"><font color="red">Male</font></label><br><br>
+
+            <label><font color="red">Nationality:</font> </label>
+            <select style="margin-left: 90;">
+             <label style="margin-left: 16;"><option selected disabled>(please select a country)</option></label>
+             <option>Indian</option>
+             <option>Japanese</option>
+             <option>Tiwanise</option>
+             <option>Other</option>
+            </select><br><br>
+         
+            <label><font color="red">Languages Known:</font> </label>
+            <label style="margin-left: 46;"><font color="red">(can select more than one)</font> </label><br>
+            <input type="checkbox"style="margin-left: 180;">
+            <label><font color="red">C</font></label><br>
+            <input type="checkbox"style="margin-left: 180;">
+            <label><font color="red">C++</font></label><br>
+            <input type="checkbox"style="margin-left: 180;">
+            <label><font color="red">VB</font></label><br>
+            <input type="checkbox"style="margin-left: 180;">
+            <label><font color="red">Java</font></label><br>
+            <input type="checkbox"style="margin-left: 180;">
+            <label><font color="red">ASP</font></label><br>
+            <input type="checkbox"style="margin-left: 180;">
+            <label><font color="red">Others</font></label><br><br>
+
+            <label style="color: red;">Enter your Password:</label>
+            <input type="password" style="margin-left: 35;" min="5" max="10"><br><br>
+
+            <button type="reset" style="margin-left: 175;">Reset</button>
+            <button type="submit">Submit</button>
+
+
+        </form>
+    </body>
+   </html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entry Form</title>
+    <style>
+        body {
+            background-color: rgb(149, 184, 219);
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: red;
+            text-align: center;
+        }
+        form {
+            width: 350px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+        }
+        label {
+            font-weight: bold;
+            color: red;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 5px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+        button {
+            width: 45%;
+            padding: 8px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: darkred;
+        }
+    </style>
+</head>
+<body>
+    <h1>ENTRY FORM</h1>
+    <form id="entryForm">
+        <label>Enter your Name:</label>
+        <input type="text" id="name"><br>
+
+        <label>Enter your Age:</label>
+        <input type="number" id="age"><br>
+
+        <label>Enter your Address:</label>
+        <textarea id="address"></textarea><br>
+
+        <label>Enter Sex:</label>
+        <input type="radio" name="gender" id="female" value="Female"><label for="female">Female</label>
+        <input type="radio" name="gender" id="male" value="Male"><label for="male">Male</label><br>
+
+        <label>Nationality:</label>
+        <select id="nationality">
+            <option selected disabled value="">(please select a country)</option>
+            <option>Indian</option>
+            <option>Japanese</option>
+            <option>Taiwanese</option>
+            <option>Other</option>
+        </select><br>
+
+        <label>Languages Known (can select more than one):</label><br>
+        <input type="checkbox" name="language" value="C"> C<br>
+        <input type="checkbox" name="language" value="C++"> C++<br>
+        <input type="checkbox" name="language" value="VB"> VB<br>
+        <input type="checkbox" name="language" value="Java"> Java<br>
+        <input type="checkbox" name="language" value="ASP"> ASP<br>
+        <input type="checkbox" name="language" value="Others"> Others<br>
+
+        <label>Enter your Password:</label>
+        <input type="password" id="password"><br>
+
+        <label>Confirm Password:</label>
+        <input type="password" id="confirmPassword"><br>
+
+        <button type="reset">Reset</button>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById("entryForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            let name = document.getElementById("name").value.trim();
+            let age = document.getElementById("age").value.trim();
+            let address = document.getElementById("address").value.trim();
+            let nationality = document.getElementById("nationality").value;
+            let password = document.getElementById("password").value;
+            let confirmPassword = document.getElementById("confirmPassword").value;
+            let genderChecked = document.querySelector('input[name="gender"]:checked');
+            let languagesChecked = document.querySelectorAll('input[name="language"]:checked');
+
+            if (!name || !age || !address || !nationality || !genderChecked || languagesChecked.length === 0 || !password || !confirmPassword) {
+                alert("All fields are required!");
+                return;
+            }
+
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters long!");
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match!");
+                return;
+            }
+
+            alert("Form submitted successfully!");
+            document.getElementById("entryForm").submit();
+        });
+    </script>
+</body>
+</html>

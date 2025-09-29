@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        body{
+            background-color: #a7c7c7;
+        }
+        h1{
+            color: red;
+            text-align: center;
+        }
+        .A{
+            color: red;
+            text-align: left;
+        }
+        #id1{
+            position: absolute;
+            right: 50px;
+        }
+        #id2{
+            position: absolute;
+            right: 40px;
+        }
+       #gender_f{
+        position: absolute;
+        right: 156px;
+       }
+       #female{
+        position: absolute;
+        right: 210px
+       }
+       #gender_m{
+        position: absolute;
+        right: 170px;
+       }
+       #male{
+        position: absolute;
+        right:210px;
+       }
+       #alag{
+        color: red;
+        position: absolute;
+        right: 50px;
+       }
+       #idc{
+        position: absolute;
+        right: 200px;
+       }
+       #A1{
+        position: absolute;
+        color: red;
+        left:275px;
+       }
+       #LK{
+        position: absolute;
+        Bottom: 200px;
+       }
+       #S{
+        position: absolute;
+        right:200px
+       }
+       #R{
+        position: absolute;
+        right:140px
+       }
+       
+    </style>
+</head>
+<body>
+    <form>
+        <h1>ENTRY FORM</h1>
+
+        <label class="A" >Enter your name:</label>
+        <input type="text" id="id1" required><br><br>
+
+        <label class="A">Enter your age:</label>
+        <input type="text" id="id1" required><br><br>
+
+        <label class="A">Enter your Address:</label>
+        <textarea id="id2"></textarea><br>
+        <br><br>
+
+        <label class="A">Sex:</label>
+
+        <input type="radio" id="female" name="gender">
+        <label class="A" id="gender_f">Female</label><br>
+        <input type="radio" id="male" name="gender">
+        <label class="A" id="gender_m">Male</label>
+        
+        
+        <br><br>
+        <label class="A">Nationality: </label>
+        <select id="id1">
+            <option>(Please select a country)</option>
+            <option>India</option>
+            <option>China</option>
+            <option>Pakistan</option>
+            <option>Nepal</option>
+        </select><br><br>
+
+        <label class="A" id="LK">Languages known: </label>
+        <label id="alag">(can select more than one)</label><br>
+        <input type="checkbox" id="idc">
+        <label id="A1">C</label>
+        <br>
+        
+        <input type="checkbox" id="idc">
+        <label id="A1">C++</label>
+
+        <br>
+        
+        <input type="checkbox" id="idc">
+        <label id="A1">VB</label>
+        
+        <br>
+        
+        <input type="checkbox" id="idc">
+        <label id="A1">JAVA</label>
+    
+        <br>
+        
+        <input type="checkbox" id="idc">
+        <label id="A1">ASP</label>
+        
+        <br>
+        
+        <input type="checkbox" id="idc">
+        <label id="A1">OTHERS</label>
+        
+        <br><br>
+        <label class="A">Enter your password:  </label>
+        <input type="password" id="id1"><br><br>
+        <br>
+        <button type="submit" id="S">Submit</button>
+        <button type="reset" id="R">Reset</button>
+    </form>
+</body>
+</html>

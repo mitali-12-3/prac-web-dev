@@ -1,87 +1,8 @@
 <html>
 <head>
-    <title>Event Handling Example</title>
-    <style>
-        #box {
-            width: 100px;
-            height: 40px;
-
-        }
-    </style>
+    <title>Success</title>
 </head>
 <body>
-    <h2>Mouse, Keyboard, and Form Events</h2>
-
-    <!-- Mouse Event Example -->
-    <div id="box">Hover Me</div>
-    <button id="clickBtn">Click Me</button><hr>
-
-    <!-- Keyboard Event Example -->
-    <label>Type Something: </label>
-    <input type="text" id="keyboardInput">
-    <p id="keyOutput"></p><hr>
-
-    <!-- Form Event Example -->
-    <form id="myForm">
-        <label>Enter Name:</label>
-        <input type="text" id="name" required><br><br>
-        <label>Enter Email:</label>
-        <input type="email" id="email" required><br><br>
-        <label>Select Gender:</label>
-        <select id="gender">
-            <option value="">--Choose--</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-        </select><br><br>
-        <button type="submit">Submit</button>
-    </form>
-    <p id="formOutput"></p>
-    <script>
-        // Mouse Events
-        let box = document.getElementById("box");
-        let button = document.getElementById("clickBtn");
-        box.addEventListener("mouseover", function() {
-            box.style.backgroundColor = "pink";
-            box.innerText = "Hovered!";
-        });
-
-        box.addEventListener("mouseout", function() {
-            box.style.backgroundColor = "lightblue";
-            box.innerText = "Hover Me";
-        });
-
-        button.addEventListener("click", function() {
-            alert("Button Clicked!");
-        });
-
-        // Keyboard Events
-        let inputField = document.getElementById("keyboardInput");
-        let keyOutput = document.getElementById("keyOutput");
-
-        inputField.addEventListener("keyup", function(event) {
-            keyOutput.innerText = "You pressed: " + event.key;
-        });
-        inputField.addEventListener("keydown", function() {
-            keyOutput.style.color = "blue";
-        });
-        
-        // Form Events
-        let form = document.getElementById("myForm");
-        let formOutput = document.getElementById("formOutput");
-        form.addEventListener("submit", function(event) {
-            event.preventDefault(); // Prevent form from reloading
-            let name = document.getElementById("name").value;
-            let email = document.getElementById("email").value;
-            let gender = document.getElementById("gender").value;
-            if (!gender) {
-                alert("Please select a gender!");
-                return;
-            }
-            formOutput.innerText = `Submitted Name: ${name}, Email: ${email}, Gender: ${gender}`;
-        });
-        document.getElementById("gender").addEventListener("change", function() {
-            alert("Gender selected: " + this.value);
-        });
-    </script>
+    <h2>your form has been submitted!</h2>
 </body>
 </html>
