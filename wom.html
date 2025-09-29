@@ -1,0 +1,50 @@
+<html>
+<head>
+    <title>Window Object Methods</title>
+</head>
+<body>
+    <h2>Window Object Methods Example</h2>
+
+    <button onclick="showAlert()">Show Alert</button>
+    <button onclick="showConfirm()">Show Confirm</button>
+    <button onclick="showPrompt()">Show Prompt</button>
+    <button onclick="redirect()">Redirect to Google</button>
+    <button onclick="showCurrentURL()">Show Current URL</button>
+    <button onclick="startTimer()">Start Timer (5s)</button>
+   
+    <p id="output"></p>
+
+    <script>
+        function showAlert() {
+            window.alert("Hello! This is an alert box.");
+        }
+
+        function showConfirm() {
+            let result = window.confirm("Are you sure?");
+            document.getElementById("output").innerText = "Confirm result: " + result;
+        }
+
+        function showPrompt() {
+            let name = window.prompt("Enter your name:", "John Doe");
+            if (name) {
+                document.getElementById("output").innerText = "Hello, " + name;
+            }
+        }
+
+        function redirect() {
+            window.location.href = "https://www.google.com";
+        }
+
+        function showCurrentURL() {
+            alert("Current URL: " + window.location.href);
+        }
+
+        function startTimer() {
+            setTimeout(() => {
+                alert("This message appears after 5 seconds!");
+            }, 5000);
+        }
+
+    </script> 
+</body>
+</html>
