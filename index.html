@@ -1,94 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Temperature Converter</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f4f4f4;
-            margin: 0;
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>Calendar Month</title> 
+</head> 
+<body> 
+    <h2>Select Month and Year</h2> 
+    <label for="month">Month:</label> 
+    <select id="month"> 
+        <script> 
+            const months = ["January", "February", "March", "April", "May", "June",  "July", "August", "September", "October", "November", "December"]; 
+            for (let i = 0; i < months.length; i++) { 
+                document.write(`<option value="${i + 1}">${months[i]}</option>`); 
+            } 
+        </script> 
+    </select> 
+    <label for="year">Year:</label> 
+    <select id="year"> 
+        <script> 
+            const currentYear = new Date().getFullYear(); 
+            for (let i = currentYear - 50; i <= currentYear + 10; i++) { 
+                document.write(`<option value="${i}">${i}</option>`); 
+            } 
+        </script> 
+    </select> 
+    <button onclick="generateCalendar()">Show Calendar</button> 
+    
+    <h3 id="calendar-title"></h3> 
+    <table border="1" id="calendar"></table> 
+    <script> 
+        function generateCalendar() { 
+            
+            const month = document.getElementById("month").value; 
+            const year = document.getElementById("year").value; 
+            const daysInMonth = new Date(year, month, 0).getDate(); 
+            const firstDay = new Date(year, month - 1, 1).getDay(); 
+        
+            let table = "<tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr><tr>"; 
+        
+            for (let i = 0; i < firstDay; i++) { 
+                table += "<td></td>"; 
+            } 
+            for (let day = 1; day <= daysInMonth; day++) { 
+                if ((firstDay + day - 1) % 7 === 0) table += "</tr><tr>"; 
+                table += `<td>${day}</td>`; 
+            } 
+            table += "</tr>"; 
+        
+            document.getElementById("calendar-title").innerText = `${months[month - 1]} ${year}`; 
+            document.getElementById("calendar").innerHTML = table; 
         }
-        .container {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            width: 300px;
-        }
-        h2 {
-            margin-bottom: 10px;
-        }
-        input, select, button {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        button {
-            background: #007BFF;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        button:hover {
-            background: #0056b3;
-        }
-        .result {
-            font-size: 18px;
-            font-weight: bold;
-            margin-top: 10px;
-            color: #333;
-        }
-    </style>
-</head>
-<body>
-
-    <div class="container">
-        <h2>Temperature Converter</h2>
-        <input type="number" id="temperature" placeholder="Enter Temperature">
-        <select id="conversionType">
-            <option value="FtoC">Fahrenheit to Celsius</option>
-            <option value="CtoF">Celsius to Fahrenheit</option>
-        </select>
-        <button onclick="convertTemperature()">Convert</button>
-        <p class="result" id="result"></p>
-    </div>
-
-    <script>
-        function fahrenheitToCelsius(fahrenheit) {
-            return ((fahrenheit - 32) * 5) / 9;
-        }
-
-        function celsiusToFahrenheit(celsius) {
-            return (celsius * 9) / 5 + 32;
-        }
-
-        function convertTemperature() {
-            let temp = document.getElementById("temperature").value;
-            let conversionType = document.getElementById("conversionType").value;
-            let resultText = "";
-            if (temp === "") {
-                resultText = "Please enter a temperature!";
-            } else {
-                temp = parseFloat(temp);
-                if (conversionType === "FtoC") {
-                    resultText = `${temp}°F = ${fahrenheitToCelsius(temp).toFixed(2)}°C`;
-                } else {
-                    resultText = `${temp}°C = ${celsiusToFahrenheit(temp).toFixed(2)}°F`;
-                }
-            }
-            document.getElementById("result").innerText = resultText;
-        }
-    </script>
-
-</body>
+        
+    </script> 
+</body> 
 </html>
