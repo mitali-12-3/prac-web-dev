@@ -1,15 +1,172 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Frames</title>
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            text-align: center;
+            background-color: #ffe4e1;
+            font-family: 'Poppins', sans-serif;
+        }
+        nav ul {
+            text-align: center;
+        }
+        nav ul li {
+            display: inline;
+            margin: 15px;
+        }
+        nav a {
+            color: #d63384;
+            font-weight: bold;
+        }
+
+        #about img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-top: 10px;
+        }
+        
+        .project {
+            display: table-cell;
+            border-radius: 10px;
+            background: #ffcad4;
+        }
+        #contact {
+            background: #ffb6c1;
+            border-radius: 10px;
+        }
+        h2 {
+            color: #c2185b;
+        }
+        a {
+            color: #880e4f;
+        }
+
+        form {
+            text-align: left;
+            background: #ffe4e1;
+        }
+
+        fieldset {
+            border: none;
+        }
+
+        legend {
+            font-weight: bold;
+            color: #c2185b;
+        }
+
+        label, input, textarea {
+            display: block;
+            width: 100%;
+        }
+
+        input, textarea {
+            padding: 5px;
+            border: 1px solid #c2185b;
+            border-radius: 5px;
+        }
+        #submit-box {
+            background: #c2185b;
+            color: white;
+        }
+    </style>
 </head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <section id="about">
+        <h2>MITALI PANDEY</h2>
+        <img src="profile.png" alt="Profile Picture">
+        <p>Hello! I'm a <abbr title="Bachelor of Technology">B.Tech</abbr> Computer Science student passionate about data analysis, machine learning, and web development.</p>
+        <p>I love working with <cite>Python</cite>, <bdo dir="ltr">C++</bdo>, and SQL.</p>
+        <p>I am a student of Graphic Era Deemed to be University which was ranked 79<sup>th</sup> in India by NIRF in 2024.</p>
+    </section>
+    
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project-container">
+            <div class="project">
+                <h3>Stock Price Prediction</h3>
+                <p>Developed an application using <b>FB Forest</b> in <i>Machine Learning</i>.</p>
+                <a href="https://github.com/mitali-12-3" target="_blank">GitHub</a>
 
-    <frameset rows="33.33%,33.33%,33.33%">
-        <frame src="listEg.html"/>
-        <frame src="listEg.html"/>
-        <frame src="listEg.html"/>
-    </frameset>
+            </div>
+            <div class="project">
+                <h3>Sales Price Prediction</h3>
+                <p>Developed an application using <b>Xgboost Regressor</b> in <i>Machine Learning</i>.</p>
+                <a href="https://github.com/mitali-12-3" target="_blank">GitHub</a>
 
+            </div>
+            <div class="project">
+                <h3>Resume Builder</h3>
+                <p>Developed a basic resume pdf generator using <b>Tkinter</b> library in Python.</p>
+                <a href="https://github.com/mitali-12-3" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills-tech-cert">
+        <div class="column">
+            <h2>Skills</h2>
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>Python</li>
+                <li>Machine Learning</li>
+            </ul>
+        </div>
+        <div class="column">
+            <h2>Technologies</h2>
+            <dl>
+                <dt><b>Programming:</b></dt>
+                <dd>Python, C/C++, SQL</dd>
+                <dt><b>Tools & Data Visualization:</b></dt>
+                <dd>Tableau, Excel</dd>
+            </dl>
+        </div>
+        <div class="column">
+            <h2>Certifications</h2>
+            <ol>
+                <li>Google Data Analytics</li>
+                <li>IBM Machine Learning</li>
+                <li>Coursera Web Development</li>
+                <li>Python for Data Science</li>
+                <li>SQL Advanced</li>
+            </ol>
+        </div>
+    </section>
+    
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Phone No.<br>
+            +91 8630401648
+        </p>
+        <p>LinkedIn: <a href="#">linkedin.com/in/mitalipandey03</a></p>
+    </section>
+    <br>
+    <form>
+        <fieldset>
+            <legend>CONNECT WITH ME!</legend>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            <input type="submit" value="Send" id="submit-box">
+        </fieldset>
+    </form>
+
+</body>
 </html>
