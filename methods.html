@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <title>Array methods</title>
+    </head>
+<body>
+<script>
+    var arr = ["cat", "sat", "rat"];
+    
+    // Reverse the array
+    var rev = arr.reverse();
+    document.write("<b>Reversed Array:</b><br>");
+    document.write(rev.join(", ") + "<br><br>");
+
+    // Sort the array
+    var sorted = arr.sort();
+    document.write("<b>Sorted Array:</b><br>");
+    document.write(sorted.join(", ") + "<br><br>");
+
+    // Concatenation
+    var newArr = arr.concat(["mat", "hat"]);
+    document.write("<b>Concatenated Array:</b><br>");
+    document.write(newArr.join(", ") + "<br><br>");
+
+    // Pop (removes last element)
+    newArr.pop();
+    document.write("<b>After Pop:</b><br>");
+    document.write(newArr.join(", ") + "<br><br>");
+
+    // Push (adds an element at the end)
+    newArr.push("bat");
+    document.write("<b>After Push:</b><br>");
+    document.write(newArr.join(", ") + "<br><br>");
+
+    // Shift (removes first element)
+    newArr.shift();
+    document.write("<b>After Shift:</b><br>");
+    document.write(newArr.join(", ") + "<br><br>");
+
+    // Unshift (adds an element at the beginning)
+    newArr.unshift("fat");
+    document.write("<b>After Unshift:</b><br>");
+    document.write(newArr.join(", ") + "<br><br>");
+
+    // Splice (adds and removes elements)
+    newArr.splice(2, 1, "brat"); // Replaces 2nd index element
+    document.write("<b>After Splice:</b><br>");
+    document.write(newArr.join(", ") + "<br><br>");
+
+    // Slice (extracts a portion)
+    var slicedArr = newArr.slice(1, 3); // Extracts index 1 to 2
+    document.write("<b>After Slice:</b><br>");
+    document.write(slicedArr.join(", ") + "<br><br>");
+
+</script>
+</body>
+</html>
