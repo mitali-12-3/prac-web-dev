@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Form Validation</title>
+  <style>
+    form {
+      width: 300px;
+      margin: 30px auto;
+      background-color: #f0f0f0;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 8px;
+      margin: 10px 0;
+      text-transform: uppercase;
+      color: green;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px;
+      width: 100%;
+    }
+    .error {
+      color: red;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<form onsubmit="return validateForm()">
+  <label>Username:</label>
+  <input type="text" id="username" required><br>
+  <label>Password:</label>
+  <input type="password" id="password" required><br>
+  <div class="error" id="errorMsg"></div>
+  <button type="submit">Submit</button>
+</form>
+
+<script>
+  function validateForm() {
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const errorMsg = document.getElementById("errorMsg");
+
+    if (!username || !password) {
+      errorMsg.textContent = "All fields should not be blank.";
+      return false;
+    }
+
+    if (username.startsWith('%')) {
+      errorMsg.textContent = "Username should not start with '%'.";
+      return false;
+    }
+
+    errorMsg.textContent = "";
+    alert("Form submitted successfully!");
+    return true;
+  }
+</script>
+
+</body>
+</html>
