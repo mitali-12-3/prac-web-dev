@@ -1,29 +1,33 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>DOM Implementation</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOREM</title>
+    <style>
+        body{
+          /*  background-image: url(image.png); */
+            background-repeat:repeat-y;
+            color: blueviolet;
+            background-attachment: fixed;
+            background-position: left;
+        }
+        #me{
+            color: brown;
+            font-size: 10px;
+        }
+        h1{
+            font-size: 25px;
+            border-style: ridge;
+            background-color: rgb(189, 194, 194);
+        }
+    </style>
 </head>
 <body>
-<h1 id="heading">Hello, World!</h1>
-<!--getElementsByClassName-->
-<p class="message">Hello, Class 1!</p>
-<p class="message">Hello, Class 2!</p>
-<!--getElementsByTagName-->
-<p>Hello 1</p>
-<p>Hello 2</p>
-<!--getElementsByquerySelector-->
-<h2 class="query">Hello, World!</h2>
-<!--getElementsByquerySelectorAll-->
-<h3 class="text">head 1!</h3>
-<h3 class="text">head 2!</h3>
-<h3 class="text">head 3!</h3>
-<script>
-document.getElementById("heading").innerHTML = "Hello, ElementById!";
-let element = document.getElementsByClassName("message");
-element[0].innerHTML = "Hello, ElementByClassName!";
-let elements = document.getElementsByTagName("p");
-elements[2].innerHTML = "Changed!";
-document.querySelector(".query").innerHTML = "Query Changed!";
-document.querySelectorAll(".text").forEach(el => el.innerHTML = "All Changed!");
-</script>
+    <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, in!</h1>
+    <p id="me">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero maxime tenetur voluptas nihil tempora quibusdam voluptatem unde sint minus fuga voluptate, at magni! Totam cumque dolores soluta, iure vero placeat!</p>
+    <p style="letter-spacing: 5px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente labore distinctio corporis minima hic illo commodi deserunt reprehenderit. Quibusdam consequatur, velit voluptatem tenetur itaque perspiciatis! Perferendis velit exercitationem veritatis placeat omnis soluta porro esse ad sint quis, error non labore atque corporis? Maxime cumque ad voluptatibus amet similique repellat, magnam, architecto unde modi tenetur corporis culpa sit dolore. Eos odio, quod natus numquam tenetur, voluptates minima accusantium non at fugit aliquam. Fuga libero nihil accusamus nobis ab expedita ipsum et commodi laborum aut minima consectetur voluptas, ipsam cupiditate fugiat architecto atque eos. Illo illum dolor amet quas iusto, officia ipsa?</p>
+    <p style="text-indent: 1cm;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente labore distinctio corporis minima hic illo commodi deserunt reprehenderit. Quibusdam consequatur, velit voluptatem tenetur itaque perspiciatis! Perferendis velit exercitationem veritatis placeat omnis soluta porro esse ad sint quis, error non labore atque corporis? Maxime cumque ad voluptatibus amet similique repellat, magnam, architecto unde modi tenetur corporis culpa sit dolore. Eos odio, quod natus numquam tenetur, voluptates minima accusantium non at fugit aliquam. Fuga libero nihil accusamus nobis ab expedita ipsum et commodi laborum aut minima consectetur voluptas, ipsam cupiditate fugiat architecto atque eos. Illo illum dolor amet quas iusto, officia ipsa?</p>
+    <p style = "font-variant: small-caps;"> This text will be rendered as small caps </p> 
 </body>
 </html>
