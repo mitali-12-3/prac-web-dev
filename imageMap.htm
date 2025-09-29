@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>Image Map Example</title>
+   <style>
+        img {
+            width: 100%;
+        }
+   </style>
+</head>
+
+<body>
+
+    <h2>Image Map</h2>
+    <p>Click on different areas of the image to navigate to different pages.</p>
+
+    <img src="famguy.jpg" alt="family-guy-characters" usemap="#image-map">
+
+    <map name="image-map">
+        
+        <!-- Brian Griffin -->
+        <area shape="rect" coords="348,644,231,317" href="https://en.wikipedia.org/wiki/Brian_Griffin" alt="brian" title="Brian Griffin">
+        
+        <!-- Stewie Griffin -->
+        <area shape="circle" coords="465,471,60" href="https://en.wikipedia.org/wiki/Stewie_Griffin" alt="stewie" title="Stewie Griffin">
+        
+        <!-- Lois Griffin -->
+        <area shape="rect" coords="469,187,326,30" href="https://en.wikipedia.org/wiki/Lois_Griffin" alt="lois" title="Lois Griffin">
+        
+        <!-- Peter Griffin -->
+        <area shape="poly" coords="648,214,495,40" href="https://en.wikipedia.org/wiki/Peter_Griffin" alt="peter" title="Peter Griffin">
+
+        <!-- Meg Griffin -->
+        <area shape="poly" coords="677,165,780,166,720,390" href="https://en.wikipedia.org/wiki/Meg_Griffin" alt="Meg" title="Meg Griffin">
+        
+        <!-- Chris Griffin -->
+        <area shape="rect" coords="956,322,820,99" href="https://en.wikipedia.org/wiki/Chris_Griffin" alt="chris" title="Chris Griffin">
+
+    </map>
+
+</body>
+</html>
