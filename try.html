@@ -1,0 +1,60 @@
+<html> 
+<head> 
+    <title>Date Handling</title> 
+    <script> 
+        function displayCurrentDayAndTime() { 
+            let today = new Date(); 
+            let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]; 
+            let day = days[today.getDay()]; 
+            let  hours = today.getHours(); 
+            let minutes = today.getMinutes(); 
+            let seconds = today.getSeconds(); 
+            let period = hours >= 12 ? "PM" : "AM"; 
+            hours = hours % 12 || 12; 
+            document.getElementById("currentDayTime").innerHTML = `Today is : ${day}.<br>Current time is : ${hours} ${period} : ${minutes} : ${seconds}`; 
+        } 
+        function getCurrentDate() { 
+        let today = new Date(); 
+        let mm = today.getMonth() + 1; 
+        let dd = today.getDate(); 
+        let yyyy = today.getFullYear(); 
+        document.getElementById("currentDate").innerHTML = `${mm}-${dd}-${yyyy}, ${mm}/${dd}/${yyyy}, ${dd}-${mm}-${yyyy}, ${dd}/${mm}/${yyyy}`; 
+        } 
+        function date_diff_indays() { 
+            let date1 = document.getElementById("date1").value; 
+            let date2 = document.getElementById("date2").value; 
+            let d1 = new Date(date1); 
+            let d2 = new Date(date2); 
+            let diffTime = d2 - d1; 
+            let diffDays = diffTime / (1000 * 60 * 60 * 24); 
+            document.getElementById("dateDiffResult").innerText = `Difference: ${diffDays} days`; 
+        } 
+        function daysUntilBirthday() { 
+            let month = document.getElementById("bdayMonth").value; 
+            let day = document.getElementById("bdayDay").value; 
+            let today = new Date(); 
+            let year = today.getFullYear(); 
+            let birthday = new Date(year, month - 1, day); 
+            if (today > birthday) { 
+                birthday = new Date(year + 1, month - 1, day); 
+            } 
+            let diffDays = Math.floor((birthday - today) / (1000 * 60 * 60 * 24)); 
+            document.getElementById("bdayResult").innerText = `Days until birthday: ${diffDays}`; 
+        } 
+    </script> 
+</head> 
+<body onload="displayCurrentDayAndTime(); getCurrentDate();"> 
+    <h2>Date Handling in JavaScript</h2> 
+    <p id="currentDayTime"></p> 
+    <p id="currentDate"></p> 
+    <h3>Calculate Date Difference</h3> 
+    <input type="date" id="date1"> to <input type="date" id="date2"> 
+    <button onclick="date_diff_indays()">Calculate</button> 
+    <p id="dateDiffResult"></p> 
+    <h3>Days Until Birthday</h3> 
+    <input type="number" id="bdayMonth" placeholder="Month" min="1" max="12"> / 
+    <input type="number" id="bdayDay" placeholder="Day" min="1" max="31"> 
+    <button onclick="daysUntilBirthday()">Calculate</button> 
+    <p id="bdayResult"></p> 
+</body> 
+</html>
