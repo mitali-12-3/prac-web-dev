@@ -1,0 +1,111 @@
+<html> 
+<head>
+    <title>Start/Stop Watch</title>
+    <style>
+        .container{
+            border: 3px solid rgb(9, 1, 13);
+            text-align: center;
+            background-color: rgb(99, 160, 160);
+            width: 250px;
+            padding: 43px;
+        }
+        .container .txt{
+            font-size: 50px;
+            display: flex;
+            justify-content: center;
+        }
+        .laps {
+            margin-top: 10px;
+            text-align: left;
+        }
+        #saveLap{
+            width: 240px;
+            height: 25;
+            align-items: center;
+        }
+        .try{
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container"> 
+         <div class="txt">
+            <div id="hr">00</div>
+            <div> : </div>
+            <div id="min"> 00 </div>
+            <div> : </div>
+            <div id="sec"> 00</div>
+            <div> : </div>
+            <div id="milli">00</div>
+         </div>
+
+      <div class="try">
+         <button id="start" onclick="start()">START</button>
+         <button id="stop" onclick="stop()">PAUSE</button>
+         <button id="reset" onclick="reset()">RESET</button>
+      </div>
+      <br>
+         <button id="saveLap" onclick="saveLap()" >SAVE LAP</button>
+         <div class="laps" id="laps"></div>
+   </div>
+    <script>
+        let hr = 0;
+        let min = 0;
+        let sec = 0;
+        let milli = 0;
+        let timer = false;
+        function start(){
+           timer = true;
+           stopwatch();
+        }
+        function stop(){
+           timer = false;
+        }
+        function reset(){
+           timer = false;
+           hr=0;
+           min=0;
+           sec=0;
+           milli=0;
+            document.getElementById("milli").innerHTML= "00" ;     
+            document.getElementById("sec").innerHTML= "00" ;
+            document.getElementById("min").innerHTML="00"; 
+            document.getElementById("hr").innerHTML="00"; 
+            document.getElementById("laps").innerHTML = ""; // Clear saved laps
+        }
+        function stopwatch(){
+           if(timer == true){
+              milli = milli + 1;
+              if(milli == 100){
+               sec = sec +1;
+               milli=0;
+              }
+               if(sec == 60){
+                   min = min+1;
+                   sec=0;
+               }
+               if(min == 60){
+                   hr = hr+1;
+                   min = 0;
+               } 
+               document.getElementById("hr").innerHTML = hr < 10 ? "0" + hr : hr;
+               document.getElementById("min").innerHTML = min < 10 ? "0" + min : min;
+               document.getElementById("sec").innerHTML = sec < 10 ? "0" + sec : sec;
+               document.getElementById("milli").innerHTML = milli < 10 ? "0" + milli : milli;
+              setTimeout("stopwatch()", 8);
+           }
+        }
+        
+        function saveLap() {
+            let lapTime = `${document.getElementById("hr").innerHTML} : ${document.getElementById("min").innerHTML} : ${document.getElementById("sec").innerHTML} : ${document.getElementById("milli").innerHTML}`;
+            let lapContainer = document.getElementById("laps");
+            let lapEntry = document.createElement("div");
+            lapEntry.innerText = "Lap: " + lapTime;
+            lapContainer.appendChild(lapEntry);
+        }
+    </script>
+</body>
+</html>

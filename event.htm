@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Toggle Event</title>
+</head>
+<body>
+    <label for="textInput">Enter a String:</label>
+    <input type="text" id="textInput">
+    <button id="convertBtn">Convert Case</button>
+    <p>Result: <span id="output"></span></p>
+
+    <script>
+        // Function to convert case
+        function toggleCase(str) {
+            let result = "";
+            for (let char of str) {
+                if (char === char.toUpperCase()) {
+                    result += char.toLowerCase();
+                } else {
+                    result += char.toUpperCase();
+                }
+            }
+            return result;
+        }
+
+        // Event handler for button click
+        document.getElementById("convertBtn").addEventListener("click", function() {
+            let inputText = document.getElementById("textInput").value;
+            let convertedText = toggleCase(inputText);
+            document.getElementById("output").textContent = convertedText;
+        });
+    </script>
+</body>
+</html>

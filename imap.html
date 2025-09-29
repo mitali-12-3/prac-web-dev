@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Map Example</title>
+</head>
+<body>
+
+    <h2>Interactive Image Map</h2>
+    <img src="image.png" usemap="#shapesMap" width="500" height="330" alt="Shapes Diagram">
+
+    <map name="shapesMap">
+        <!-- Rectangle (22,11 to 122,62) -->
+        <area shape="rect" coords="22,11,122,62" href="https://google.com/food" alt="Rectangle">
+        
+        <!-- Polygon (Triangle) -->
+        <area shape="poly" coords="30,110,87,78,69,113,81,139" href="https://google.com/triangle" alt="Triangle">
+        
+        <!-- Circle (Center: 184,86, Radius: 30) -->
+        <area shape="circle" coords="184,86,30" href="https://google.com/joey" alt="Circle">
+    </map>
+
+</body>
+</html>

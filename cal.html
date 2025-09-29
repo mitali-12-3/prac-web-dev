@@ -1,0 +1,57 @@
+<html>
+<head>
+    <title>Monthly Calendar</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>Enter Month and Year (mm/yyyy)</h2>
+    <input type="text" id="monthYear" placeholder="e.g. 01/2019">
+    <button onclick="generateCalendar()">Show Calendar</button>
+    <div id="calendarOutput"></div>
+    <script>
+        function generateCalendar() {
+            let input = document.getElementById("monthYear").value;
+            let [month, year] = input.split('/').map(Number);
+            if (!month || !year || month < 1 || month > 12 || year < 1) {
+                alert("Please enter a valid month and year (mm/yyyy).");
+                return;
+            }
+            let firstDay = new Date(year, month - 1, 1).getDay(); // Get starting day of the week
+            let daysInMonth = new Date(year, month, 0).getDate(); // Get number of days in the month
+            let table = `<table><tr><th>M</th><th>T</th><th>W</th><th>Th</th><th>F</th><th>S</th><th>Su</th></tr><tr>`;
+            let day = 1;
+            for (let i = 0; i < 7; i++) {
+                if (i < firstDay) {
+                    table += "<td></td>"; // Empty cells before the first day
+                } else {
+                    table += `<td>${day++}</td>`;
+                }
+            }
+            table += "</tr>";
+            while (day <= daysInMonth) {
+                table += "<tr>";
+                for (let i = 0; i < 7 && day <= daysInMonth; i++) {
+                    table += `<td>${day++}</td>`;
+                }
+                while (table.endsWith("<tr>") || table.endsWith("<td>")) {
+                    table += "<td></td>";
+                }
+                table += "</tr>";
+            }
+            table += "</table>";
+            document.getElementById("calendarOutput").innerHTML = table;
+        }
+    </script>
+</body>
+</html>

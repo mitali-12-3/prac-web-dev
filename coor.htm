@@ -1,0 +1,20 @@
+<html>
+<head>
+   <title>Screen Coordinates</title>
+</head>
+<body>
+    <p>Click anywhere to see screen coordinates</p>
+    <p id="output"></p>
+    <script>
+        document.addEventListener("click", function(event) {
+            let output = document.getElementById("output");
+            output.innerHTML = `
+                <strong>Screen Coordinates:</strong> (${event.screenX}, ${event.screenY}) <br>
+                <strong>Page Coordinates:</strong> (${event.pageX}, ${event.pageY}) <br>
+                <strong>Client Coordinates:</strong> (${event.clientX}, ${event.clientY})<br>
+                <strong>Movement (relative to last event):</strong> (${event.movementX}, ${event.movementY})
+                `;
+        });
+    </script>
+</body>
+</html>
