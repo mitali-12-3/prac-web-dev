@@ -1,51 +1,87 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>CSS Effects</title>
-  <style>
-    /* Link color effects */
-    a:link {
-      color: blue; /* Before visited */
-    }
-    a:visited {
-      color: red; /* After visited */
-    }
+    <title>Event Handling Example</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 40px;
 
-    /* Table styling */
-    table {
-      border-collapse: collapse;
-      width: 50%;
-      margin-top: 20px;
-    }
-    th, td {
-      border: 1px solid black;
-      padding: 8px;
-      text-align: center;
-    }
-    tr:nth-child(odd) {
-      background-color: blue;
-      color: white;
-    }
-    tr:nth-child(even) {
-      background-color: green;
-      color: white;
-    }
-  </style>
+        }
+    </style>
 </head>
 <body>
+    <h2>Mouse, Keyboard, and Form Events</h2>
 
-  <h2>Link Styling</h2>
-  <a href="https://example.com">Visit Example.com</a>
+    <!-- Mouse Event Example -->
+    <div id="box">Hover Me</div>
+    <button id="clickBtn">Click Me</button><hr>
 
-  <h2>Styled Table</h2>
-  <table>
-    <tr><th>Sl. No</th><th>Name</th></tr>
-    <tr><td>1</td><td>Alice</td></tr>
-    <tr><td>2</td><td>Bob</td></tr>
-    <tr><td>3</td><td>Charlie</td></tr>
-    <tr><td>4</td><td>David</td></tr>
-  </table>
+    <!-- Keyboard Event Example -->
+    <label>Type Something: </label>
+    <input type="text" id="keyboardInput">
+    <p id="keyOutput"></p><hr>
 
+    <!-- Form Event Example -->
+    <form id="myForm">
+        <label>Enter Name:</label>
+        <input type="text" id="name" required><br><br>
+        <label>Enter Email:</label>
+        <input type="email" id="email" required><br><br>
+        <label>Select Gender:</label>
+        <select id="gender">
+            <option value="">--Choose--</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select><br><br>
+        <button type="submit">Submit</button>
+    </form>
+    <p id="formOutput"></p>
+    <script>
+        // Mouse Events
+        let box = document.getElementById("box");
+        let button = document.getElementById("clickBtn");
+        box.addEventListener("mouseover", function() {
+            box.style.backgroundColor = "pink";
+            box.innerText = "Hovered!";
+        });
+
+        box.addEventListener("mouseout", function() {
+            box.style.backgroundColor = "lightblue";
+            box.innerText = "Hover Me";
+        });
+
+        button.addEventListener("click", function() {
+            alert("Button Clicked!");
+        });
+
+        // Keyboard Events
+        let inputField = document.getElementById("keyboardInput");
+        let keyOutput = document.getElementById("keyOutput");
+
+        inputField.addEventListener("keyup", function(event) {
+            keyOutput.innerText = "You pressed: " + event.key;
+        });
+        inputField.addEventListener("keydown", function() {
+            keyOutput.style.color = "blue";
+        });
+        
+        // Form Events
+        let form = document.getElementById("myForm");
+        let formOutput = document.getElementById("formOutput");
+        form.addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form from reloading
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let gender = document.getElementById("gender").value;
+            if (!gender) {
+                alert("Please select a gender!");
+                return;
+            }
+            formOutput.innerText = `Submitted Name: ${name}, Email: ${email}, Gender: ${gender}`;
+        });
+        document.getElementById("gender").addEventListener("change", function() {
+            alert("Gender selected: " + this.value);
+        });
+    </script>
 </body>
 </html>
