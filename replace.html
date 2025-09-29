@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p>Replace "Java" with "WebDesign"</p>
+<button onclick="myfunc1()">Try babe</button>
+<p id="demo">Please visit Java programming</p>
+<script>
+function myfunc1(){
+var str = document.getElementById("demo").innerHTML;
+var txt = str.replace("Java","WebDesign");
+document.getElementById("demo").innerHTML = txt;
+}
+</script>
+</body>
+</html>

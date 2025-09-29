@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+<button onclick="myFunction()">Try it</button>
+<p id="demo"></p>
+<script>
+    /*
+    A string can be converted to an array with the split() method:
+    txt.split(",");          // Split on commas
+    txt.split(" ");          // Split on spaces
+    txt.split("|");        // Split on pipe
+
+*/
+    function myFunction() {
+        var str = "how,are,you";
+        var arr = str.split(",");
+        var i;
+        for(i=0;i<arr.length;i++)
+        {
+            document.write(arr[i]+"</br>");
+        }
+        }
+</script>
+</body>
+</html>
