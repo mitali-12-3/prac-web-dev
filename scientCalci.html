@@ -1,0 +1,124 @@
+<html>
+    <head>
+    <title>
+        scientific calculator
+    </title>
+    <style>
+        input[type="button"]{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    </head>
+<body>
+<table>
+	<tr>
+		<th colspan="5"> 
+            <input type="text" id="a"> 
+        </th>
+	</tr>
+	<tr>
+		<th><input type="button" value="sin" onclick="number('sin(')"></th>
+        <th><input type="button" value="cos" onclick="number('cos(')"></th>
+        <th><input type="button" value="tan" onclick="number('tan(')"></th>
+
+		<th colspan="2"><input type="button" value="C" class="clear" onclick="clr()"></th>
+	</tr>
+	<tr>
+		<th><input type="button" value="x^2" onclick="square()"></th>
+		<th><input type="button" value="x^3" onclick="cubed()"></th>
+		<th><input type="button" value="sqrt2" onclick="sqrt2()"></th>
+		<th><input type="button" value="sqrt3" onclick="sqrt3()"></th>
+	</tr>
+	<tr>
+		<th><input type="button" value="1" onclick="number(1)"></th>
+		<th><input type="button" value="2" onclick="number(2)"></th>
+		<th><input type="button" value="3" onclick="number(3)"></th>
+		<th><input type="button" value="<" onclick="BACKSPC()"></th>
+	</tr>
+	<tr>
+		<th><input type="button" value="4" onclick="number(4)"></th>
+		<th><input type="button" value="5" onclick="number(5)"></th>
+		<th><input type="button" value="6" onclick="number(6)"></th>
+		<th><input type="button" value="-" onclick="number('-')"></th>
+	</tr>
+	<tr>
+		<th><input type="button" value="7" onclick="number(7)"></th>
+		<th><input type="button" value="8" onclick="number(8)"></th>
+		<th><input type="button" value="9" onclick="number(9)"></th>
+		<th><input type="button" value="/" onclick="number('/')"></th>
+	</tr>
+	<tr>
+		<th><input type="button" value="." onclick="number('.')"></th>
+        <th><input type="button" value="0" onclick="number(0)"></th>
+		<th><input type="button" value="*" onclick="number('*')"></th>
+		<th><input type="button" value="%" onclick="number('%')"></th>
+	</tr>
+	<tr>
+		<th > <input type="button" value="=" onclick="solve()" class="equal"></th>
+		<th><input type="button" value="+" onclick="number('+')"></th>
+        <th><input type="button" value="(" onclick="number('(')"></th>
+        <th><input type="button" value=")" onclick="number(')')"></th>
+	</tr>
+</table>
+<script>
+    function sin() {
+        const inputField = document.getElementById('a');
+        const radians = parseFloat(inputField.value) * (Math.PI / 180);
+        inputField.value = Math.sin(radians);
+    }
+      
+    function cos() {
+        const inputField = document.getElementById('a');
+        const radians = parseFloat(inputField.value) * (Math.PI / 180);
+        inputField.value = Math.cos(radians);
+    }
+      
+    function tan() {
+        const inputField = document.getElementById('a');
+        const radians = parseFloat(inputField.value) * (Math.PI / 180);
+        inputField.value = Math.tan(radians);
+    }
+      
+	function BACKSPC() {
+        const inputField = document.getElementById('a');
+        inputField.value = inputField.value.slice(0, -1);
+      }
+      function square() {
+        const inputField = document.getElementById('a');
+        inputField.value = Math.pow(parseFloat(inputField.value), 2);
+      }
+      function cubed() {
+        const inputField = document.getElementById('a');
+        inputField.value = Math.pow(parseFloat(inputField.value), 3);
+      }
+      function sqrt2() {
+        const inputField = document.getElementById('a');
+        inputField.value = Math.sqrt(parseFloat(inputField.value));
+      }
+      function sqrt3() {
+        const inputField = document.getElementById('a');
+        inputField.value = Math.cbrt(parseFloat(inputField.value));
+      }
+    function number(val){
+        document.getElementById("a").value+=val;
+    }
+	function clr(){
+        document.getElementById("a").value=" ";
+    }
+    function solve() {
+        const inputField = document.getElementById('a');
+        let expression = inputField.value;
+        // Replace function names with Math. counterparts
+        expression = expression.replace(/sin/g, 'Math.sin');
+        expression = expression.replace(/cos/g, 'Math.cos');
+        expression = expression.replace(/tan/g, 'Math.tan');
+        try {
+          inputField.value = eval(expression);
+        } catch (error) {
+          inputField.value = 'Error';
+        }
+      }
+</script>
+</body>
+</html>
